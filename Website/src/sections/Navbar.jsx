@@ -1,16 +1,37 @@
 import React, { useState } from 'react'
 import { motion } from 'motion/react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 function Navigation({ onItemClick }) {
-    const handleSmoothScroll = (e, targetId) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleNavigation = (e, targetId) => {
         e.preventDefault();
-        const element = document.getElementById(targetId);
-        if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        
+        // If we're on the homepage, scroll to section
+        if (location.pathname === '/') {
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        } else {
+            // If we're on another page, navigate to homepage then scroll
+            navigate('/', { replace: true });
+            setTimeout(() => {
+                const element = document.getElementById(targetId);
+                if (element) {
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 100);
         }
+        
         // Close mobile menu after clicking
         if (onItemClick) {
             onItemClick();
@@ -23,7 +44,7 @@ function Navigation({ onItemClick }) {
                 <a 
                     className='nav-link' 
                     href='#games'
-                    onClick={(e) => handleSmoothScroll(e, 'games')}
+                    onClick={(e) => handleNavigation(e, 'games')}
                 >
                     Games
                 </a>
@@ -32,7 +53,7 @@ function Navigation({ onItemClick }) {
                 <a 
                     className='nav-link' 
                     href='#about'
-                    onClick={(e) => handleSmoothScroll(e, 'about')}
+                    onClick={(e) => handleNavigation(e, 'about')}
                 >
                     About
                 </a>
@@ -41,7 +62,7 @@ function Navigation({ onItemClick }) {
                 <a 
                     className='nav-link' 
                     href='#careers'
-                    onClick={(e) => handleSmoothScroll(e, 'careers')}
+                    onClick={(e) => handleNavigation(e, 'careers')}
                 >
                     Careers
                 </a>
@@ -50,7 +71,7 @@ function Navigation({ onItemClick }) {
                 <a 
                     className='nav-link' 
                     href='#contact'
-                    onClick={(e) => handleSmoothScroll(e, 'contact')}
+                    onClick={(e) => handleNavigation(e, 'contact')}
                 >
                     Contact
                 </a>
@@ -61,10 +82,12 @@ function Navigation({ onItemClick }) {
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
     
-    // Function to scroll to top smoothly
-    const scrollToTop = (e) => {
+    // Function to go to homepage and scroll to top
+    const goToHomepage = (e) => {
         e.preventDefault();
+        navigate('/');
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -84,7 +107,7 @@ const Navbar = () => {
                     <a 
                         href='/' 
                         className='text-lg sm:text-xl font-bold transition-colors text-neutral-400 hover:text-white flex-shrink-0'
-                        onClick={scrollToTop}
+                        onClick={goToHomepage}
                     >
                         Bytelyft
                     </a>

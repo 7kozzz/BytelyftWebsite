@@ -1,17 +1,28 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-   const handleSmoothScroll = (e, targetId) => {
-        e.preventDefault();
-        const element = document.getElementById(targetId);
-        if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    };
+  
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Function to scroll to top when navigating to legal pages
+  const handleLegalPageClick = () => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  };
+
   return (
     <footer className="w-full bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 border-t border-gray-800/50">
       <div className="w-full max-w-none px-4 md:px-6 py-16">
@@ -87,50 +98,66 @@ const Footer = () => {
           >
             <h4 className="text-lg font-bold text-white mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              {/* <li>
-                <a 
-                  href="/" 
+              <li>
+                <Link 
+                  to="/" 
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                  onClick={(e) => handleSmoothScroll(e, '/')}
                 >
                   Home
-                </a>
-              </li> */}
+                </Link>
+              </li>
               <li>
-                <a 
-                  href="#games" 
+                <Link 
+                  to="/#games" 
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                  onClick={(e) => handleSmoothScroll(e, 'games')}
+                  onClick={(e) => {
+                    // If we're on the homepage, scroll to section
+                    if (window.location.pathname === '/') {
+                      handleSmoothScroll(e, 'games');
+                    }
+                  }}
                 >
                   Games
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#about" 
+                <Link 
+                  to="/#about" 
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                  onClick={(e) => handleSmoothScroll(e, 'about')}
+                  onClick={(e) => {
+                    if (window.location.pathname === '/') {
+                      handleSmoothScroll(e, 'about');
+                    }
+                  }}
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#careers" 
+                <Link 
+                  to="/#careers" 
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                  onClick={(e) => handleSmoothScroll(e, 'careers')}
+                  onClick={(e) => {
+                    if (window.location.pathname === '/') {
+                      handleSmoothScroll(e, 'careers');
+                    }
+                  }}
                 >
                   Careers
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#contact" 
+                <Link 
+                  to="/#contact" 
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                  onClick={(e) => handleSmoothScroll(e, 'contact')}
+                  onClick={(e) => {
+                    if (window.location.pathname === '/') {
+                      handleSmoothScroll(e, 'contact');
+                    }
+                  }}
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>
@@ -162,36 +189,6 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Newsletter Signup */}
-        {/* <motion.div
-          className="max-w-7xl mx-auto bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-2xl p-6 md:p-8 border border-cyan-400/20 mb-12"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center md:text-left md:flex md:items-center md:justify-between">
-            <div className="mb-4 md:mb-0">
-              <h4 className="text-xl font-bold text-white mb-2">Stay in the Loop</h4>
-              <p className="text-gray-300">Get the latest updates on our games, releases, and company news.</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 md:max-w-md">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 bg-gray-900/60 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors"
-              />
-              <motion.button
-                className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Subscribe
-              </motion.button>
-            </div>
-          </div>
-        </motion.div> */}
-
         {/* Bottom Bar */}
         <motion.div
           className="max-w-7xl mx-auto border-t border-gray-800/50 pt-8"
@@ -208,17 +205,29 @@ const Footer = () => {
               <p className="text-sm">Made with ❤️ for the gaming community</p>
             </div>
 
-            {/* Legal Links */}
+            {/* Legal Links - Using React Router Link */}
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <Link 
+                to="/privacy-policy" 
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+                onClick={handleLegalPageClick}
+              >
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              </Link>
+              <Link 
+                to="/terms-of-service" 
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+                onClick={handleLegalPageClick}
+              >
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              </Link>
+              <Link 
+                to="/cookie-policy" 
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+                onClick={handleLegalPageClick}
+              >
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>
