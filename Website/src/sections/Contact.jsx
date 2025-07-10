@@ -236,7 +236,7 @@ const ContactUs = () => {
               transition={{ duration: 0.8, delay: 1.2 }}
               viewport={{ once: true }}
             >
-              <motion.button
+              {/* <motion.button
                 className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg"
                 whileHover={{ 
                   scale: 1.05,
@@ -258,7 +258,7 @@ const ContactUs = () => {
                 onClick={() => window.location.href = 'mailto:support@bytelyft.io'}
               >
                 Start the Conversation
-              </motion.button>
+              </motion.button> */}
             </motion.div>
 
             {/* Pulse Effect */}

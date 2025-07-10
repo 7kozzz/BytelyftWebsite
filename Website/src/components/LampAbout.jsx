@@ -161,10 +161,10 @@ export function LampAbout() {
     transition={{ duration: 0.8, delay: 0.6 }}
     viewport={{ once: true }}
   >
-    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-3 sm:mb-4 md:mb-6 px-2 sm:px-4">
+    {/* <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-3 sm:mb-4 md:mb-6 px-2 sm:px-4">
       Ready to be part of something bigger than just gaming?
     </p>
-    <JoinByteLyft/>
+    <JoinByteLyft/> */}
   </motion.div>
 </div>
       

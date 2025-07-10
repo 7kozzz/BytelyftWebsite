@@ -7,7 +7,7 @@ import JoinByteLyft from "./JoinByteLyft";
 export function LampCareers() {
   return (
     <LampContainer>
-      <motion.h1
+      <motion.div
         initial={{ opacity: 0.5, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{
@@ -15,28 +15,33 @@ export function LampCareers() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        className="w-full max-w-6xl mx-auto"
+      >
+        {/* Title Section */}
         <motion.div
-          className="text-center mb-8 md:mb-16"
+          className="text-center mb-16 md:mb-24 mt-12 md:mt-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="max-w-6xl mx-auto">
+          {/* <h1 className="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+            Join Our Journey
+          </h1> */}
+        </motion.div>
         
         {/* Main Content */}
-        <div className="bg-slate-950/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-4 md:p-8 border border-cyan-400/10">
+        <div className="bg-slate-950/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-10 border border-cyan-400/10 space-y-12 md:space-y-16">
           
           {/* Hero Message */}
           <motion.div
-            className="text-center mb-12 md:mb-16"
+            className="text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6">
+            <h3 className="text-2xl md:text-4xl font-bold text-white mb-6 md:mb-8">
               Grow With Us
             </h3>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
@@ -47,7 +52,7 @@ export function LampCareers() {
           </motion.div>
 
           {/* What We Offer Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             
             <motion.div
               className="bg-gray-800/40 rounded-xl p-6 border border-cyan-400/20"
@@ -97,32 +102,32 @@ export function LampCareers() {
 
           {/* Future Roles Teaser */}
           <motion.div
-            className="bg-gradient-to-r from-cyan-900/30 to-purple-900/30 rounded-xl p-6 md:p-8 border border-cyan-400/30 mb-8 md:mb-12"
+            className="bg-gradient-to-r from-cyan-900/30 to-purple-900/30 rounded-xl p-6 md:p-8 border border-cyan-400/30"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-4 text-center">
+            <h4 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-6 text-center">
               Future Opportunities We're Building Towards
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 text-center max-w-4xl mx-auto">
-              <div className="text-gray-300 text-sm md:text-base">
+              <div className="text-gray-300 text-sm md:text-base py-2">
                 <span className="text-cyan-400 font-semibold">•</span> Game Developers
               </div>
-              <div className="text-gray-300 text-sm md:text-base">
+              <div className="text-gray-300 text-sm md:text-base py-2">
                 <span className="text-purple-400 font-semibold">•</span> 3D Artists
               </div>
-              <div className="text-gray-300 text-sm md:text-base">
+              <div className="text-gray-300 text-sm md:text-base py-2">
                 <span className="text-orange-400 font-semibold">•</span> UI/UX Designers
               </div>
-              <div className="text-gray-300 text-sm md:text-base">
+              <div className="text-gray-300 text-sm md:text-base py-2">
                 <span className="text-green-400 font-semibold">•</span> Sound Engineers
               </div>
-              <div className="text-gray-300 text-sm md:text-base">
+              <div className="text-gray-300 text-sm md:text-base py-2">
                 <span className="text-pink-400 font-semibold">•</span> Community Managers
               </div>
-              <div className="text-gray-300 text-sm md:text-base">
+              <div className="text-gray-300 text-sm md:text-base py-2">
                 <span className="text-yellow-400 font-semibold">•</span> QA Testers
               </div>
             </div>
@@ -130,61 +135,55 @@ export function LampCareers() {
 
           {/* Current Status */}
           <motion.div
-            className="text-center bg-gray-800/60 rounded-xl p-6 md:p-8 border border-yellow-400/30"
+            className="text-center bg-gray-800/60 rounded-xl p-6 md:p-8 border border-yellow-400/30 relative"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            <div className="text-yellow-400 text-4xl md:text-5xl mb-4">👀</div>
+            <div className="text-yellow-400 text-4xl md:text-5xl mb-6">👀</div>
             <h4 className="text-xl md:text-2xl font-bold text-white mb-4">
               Keep an Eye Out
             </h4>
             <p className="text-lg md:text-xl text-gray-300 mb-4">
               Currently, no positions are available, but we're growing fast!
             </p>
-            <p className="text-base md:text-lg text-gray-400 mb-6">
+            <p className="text-base md:text-lg text-gray-400 mb-8">
               Follow our journey and be the first to know when opportunities open up. 
               The best talent finds us before we even post the job.
             </p>
             
-            {/* Floating Elements */}
-            <div className="relative">
-              <motion.div
-                className="absolute -top-2 -right-2 w-3 h-3 bg-cyan-400 rounded-full opacity-60"
-                animate={{ 
-                  scale: [1, 1.5, 1],
-                  opacity: [0.6, 1, 0.6]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-1 -left-1 w-2 h-2 bg-purple-400 rounded-full opacity-50"
-                animate={{ 
-                  scale: [1.2, 1, 1.2],
-                  opacity: [0.5, 0.8, 0.5]
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  ease: "easeInOut",
-                  delay: 1
-                }}
-              />
-              
+            {/* <JoinByteLyft /> */}
             
-            </div>
+            {/* Floating Elements */}
+            <motion.div
+              className="absolute top-4 right-4 w-3 h-3 bg-cyan-400 rounded-full opacity-60"
+              animate={{ 
+                scale: [1, 1.5, 1],
+                opacity: [0.6, 1, 0.6]
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+            />
+            <motion.div
+              className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400 rounded-full opacity-50"
+              animate={{ 
+                scale: [1.2, 1, 1.2],
+                opacity: [0.5, 0.8, 0.5]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity, 
+                ease: "easeInOut",
+                delay: 1
+              }}
+            />
           </motion.div>
         </div>
-      </div>
-        </motion.div>
-      </motion.h1>
-
-      
+      </motion.div>
     </LampContainer>
   );
 }
@@ -263,7 +262,7 @@ export const LampContainer = ({
         <div
           className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-slate-950 "></div>
       </div>
-      <div className="relative z-50 flex -translate-y-40 flex-col items-center px-5 w-full">
+      <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5 w-full">
         {children}
       </div>
     </div>

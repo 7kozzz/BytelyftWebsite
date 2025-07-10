@@ -89,7 +89,7 @@ const BlindTrustGame = () => {
                     controls
                     controlsList="nodownload" // Optional: removes download button
                 >
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    <source src="https://firebasestorage.googleapis.com/v0/b/blindtrust-c5845.firebasestorage.app/o/BlindTrustTrailer.mp4?alt=media&token=cf66fd2b-9909-4e17-806b-4babd0054bcc" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
